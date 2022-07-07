@@ -1,5 +1,6 @@
 @Library('roboshop-jenkins-shared-library') _
 
+env.COMPONENT= 'cart'
 nodejs()
 
 // here in output you will get a dir named node_modules which generated after run npm install.
