@@ -1,7 +1,7 @@
 @Library('roboshop-jenkins-shared-library') _
 
 env.COMPONENT= 'cart'
-env.APP_TPE= 'nodejs'
+env.APP_TYPE= 'nodejs'
 nodejs()
 
 
