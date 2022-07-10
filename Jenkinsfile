@@ -2,6 +2,7 @@
 
 env.COMPONENT= 'cart'
 env.APP_TYPE= 'nodejs'
+env.ENV=dev
 nodejs()
 
 
