@@ -4,7 +4,7 @@ trigger:
 pool: d65
 
 steps:
-- script: npm_install
+- script: npm install
   displayName: 'Download Nodejs Dependencies'
 - script: docker build -t cart .
   displayName: 'Docker Build'
