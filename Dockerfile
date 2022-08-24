@@ -6,4 +6,4 @@ WORKDIR  /app
 USER     roboshop
 
 ADD      server.js /app
-RUN      node_modules /app/node_modules
+RUN      node_modules /app/node_module
