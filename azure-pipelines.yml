@@ -6,11 +6,15 @@ trigger:
 
 pool: d65
 
+variables:
+  COMPONENT: cart
+
 resources:
   repositories:
   - repository: templates
     type: github
     name: devopsravi9/roboshop-azure-devops-templates
+    endpoint: devopsravi9
 
 jobs:
 - template: nodejs.yml@templates  # Template reference
