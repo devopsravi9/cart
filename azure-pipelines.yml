@@ -6,40 +6,15 @@ trigger:
 
 pool: d65
 
-#steps:
-#- script: npm install
-#  displayName: 'Download Nodejs Dependencies'
-#
-#- script: docker build -t cart .
-#  displayName: 'Docker Build'
-#
-#- script: |
-#    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 041583668323.dkr.ecr.us-east-1.amazonaws.com
-#    docker tag cart:latest 041583668323.dkr.ecr.us-east-1.amazonaws.com/cart:latest
-#    docker push 041583668323.dkr.ecr.us-east-1.amazonaws.com/cart:latest
-#  displayName: 'Docker Push Image to ECR'
+resources:
+  repositories:
+  - repository: templates
+    type: github
+    name: devopsravi9/roboshop-azure-devops-templates
+
+jobs:
+- template: nodejs.yml@templates  # Template reference
 
 
 
-stages:
-- stage: CI
-  jobs:
-  - job: CI
-    steps :
-    - script : npm install
-      displayName : 'Download Nodejs Dependencies'
-
-    - script : docker build -t cart .
-      displayName : 'Docker Build'
-
-- stage: DockerUpload
-  condition : succeeded()
-  jobs:
-  - job: DockerUpload
-    steps:
-    - script : |
-        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 041583668323.dkr.ecr.us-east-1.amazonaws.com
-        docker tag cart:latest 041583668323.dkr.ecr.us-east-1.amazonaws.com/cart:latest
-        docker push 041583668323.dkr.ecr.us-east-1.amazonaws.com/cart:latest
-      displayName : 'Docker Push Image to ECR'
 
