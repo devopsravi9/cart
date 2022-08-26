@@ -17,8 +17,7 @@ resources:
     endpoint: devopsravi9
 
 jobs:
-- template: nodejs.yml@templates  # Template reference
-
+- template: nodejs.yml@templates
 
 
 
