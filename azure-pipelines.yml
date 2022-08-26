@@ -16,7 +16,7 @@ resources:
     name: devopsravi9/roboshop-azure-devops-templates
     endpoint: devopsravi9
 
-jobs:
+stages:
 - template: nodejs.yml@templates
 
 
