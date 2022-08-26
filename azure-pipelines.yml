@@ -1,3 +1,6 @@
+#JOB & STAGE name shold not have any spaces
+#default azure runs stages parallely, to make it sequential we should write condition
+
 trigger:
 - main
 
@@ -16,7 +19,7 @@ pool: d65
 #    docker push 041583668323.dkr.ecr.us-east-1.amazonaws.com/cart:latest
 #  displayName: 'Docker Push Image to ECR'
 
-#JOB & STAGE name shold not have any spaces
+
 
 stages:
 - stage: CI
@@ -30,6 +33,7 @@ stages:
       displayName : 'Docker Build'
 
 - stage: DockerUpload
+  condition : succeeded()
   jobs:
   - job: DockerUpload
     steps:
