@@ -1,1 +1,4 @@
 appName: cart
+Service:
+  port: 8080
+  type: ClusterIp
